@@ -25,7 +25,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: . # This tells it to deploy the root directory
+          publish_dir: .
+          publish_branch: main # Deploy directly to the main branch
           # If your GitHub Pages is served from /docs, use this instead:
           # publish_dir: .
           # destination_dir: docs
