@@ -21,24 +21,41 @@
             padding: 40px;
             border-radius: 10px;
             background-color: #23272a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        h1 {
-            font-size: 3em;
+        .main-content {
+            display: flex;
+            align-items: center;
             margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.5em;
         }
         .squid-emoji {
             font-size: 5em;
+            margin-right: 15px;
+        }
+        #reaction-count {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 5em;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 1em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="squid-emoji">🦑</div>
-        <p><span id="reaction-count">Loading...</span></p>
+        <div class="main-content">
+            <span class="squid-emoji">🦑</span> <span id="reaction-count">Loading...</span>
+        </div>
     </div>
+
+    <footer>
+        <p>Made with ❤️ and 🦑 by master629</p>
+    </footer>
 
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -47,7 +64,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
     <script>
-        // Your web app's Firebase configuration
+        // Your web app\'s Firebase configuration
         const firebaseConfig = {
             apiKey: "%%FIREBASE_API_KEY%%",
             authDomain: "%%FIREBASE_AUTH_DOMAIN%%",
@@ -61,19 +78,16 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
-        const reactionCountElement = document.getElementById('reaction-count');
+        const reactionCountElement = document.getElementById(\'reaction-count\');
 
         // Listen for real-time updates
-        db.collection('global').doc('stats').onSnapshot((doc) => {
+        db.collection(\'global\').doc(\'stats\').onSnapshot((doc) => {
             if (doc.exists) {
                 reactionCountElement.textContent = doc.data().totalReactions;
             } else {
-                reactionCountElement.textContent = '0';
-            }
+                reactionCountElement.textContent = \'0\';
+            }\
         });
     </script>
-    <footer>
-        <p>Made with ❤️ and 🦑 by master629</p>
-    </footer>
 </body>
 </html>
