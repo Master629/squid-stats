@@ -17,7 +17,7 @@
         }
         .container {
             text-align: center;
-            padding: 200px;
+            padding: 7vh 5vw;
             border-radius: 10px;
             background-color: #23272a;
             display: flex;
@@ -25,19 +25,21 @@
             align-items: center;
             justify-content: center;
             margin: auto;
+            max-width: 35%; /* Target 35% width for the container */
+            box-sizing: border-box; /* Include padding in the width calculation */
         }
         .main-content {
             display: flex;
             align-items: center;
-            margin-bottom: 100px;
+            margin-bottom: 3vh;
         }
         .squid-emoji {
-            font-size: 25em;
-            margin-right: 75px;
+            font-size: 10vw; /* Adjust based on viewport width for responsiveness */
+            margin-right: 3vw;
         }
         #reaction-count {
             font-family: 'Comic Sans MS', cursive;
-            font-size: 25em;
+            font-size: 10vw; /* Adjust based on viewport width for responsiveness */
             font-weight: bold;
         }
         footer {
