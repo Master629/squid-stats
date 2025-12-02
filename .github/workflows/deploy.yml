@@ -30,5 +30,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build # Deploy from the dedicated build directory
-          publish_branch: gh-pages # Deploy to the gh-pages branch
+          publish_dir: ./build
+          publish_branch: gh-pages
+          force_orphan: true # Forces a fresh deploy, overwriting previous content
